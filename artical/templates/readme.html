@@ -1,0 +1,53 @@
+
+{%load static%}
+
+
+          <div class='border row'>
+            <div class='col-xs-10'>
+
+                <h1>What To Read Next</h1>
+
+            </div>
+            <!-- IF U WANT PAGINATION APPLY THIS LOGIC
+            <div class='col-xs-2'>
+              <div class='pagination'>
+                  
+                  {% if blog.has_previous %}
+                    <a href="?page={{ blog.previous_page_number}}">
+                      <h5><span class="glyphicon glyphicon-chevron-left"></span></h5>
+                    </a>
+                  {%endif%}
+                  <span class='current text-primary'>page{{blog.number}} of {{blog.paginator.num_pages}}.
+                  </span>
+                  {% if blog.has_next %}
+                    <a href="?page={{blog.next_page_number}}">
+                      <h5><span class="glyphicon glyphicon-chevron-Right"></h5></span>
+                    </a>
+                  {% endif %}
+              </div>
+            </div>-->
+          </div>
+
+                
+          <div class="border row pt-4">
+            <div class="col-md-3">
+              <a href="{% url 'blog_detail' %}" class="img-wrapper">
+              <img class="left-block" src="{%static 'sachin.jpg'%}"alt="" style="width:100px;height:100px;"/></a>
+              <p style="width: 20px;">Sachin</p>
+            </div>
+            <div class="col-md-3">
+              <a href="{% url 'blog_detail' %}" class="img-wrapper">
+              <img class="left-block" src="{%static 'saina.jpg'%}" alt="" style="width:100px;height:100;"/></a>
+              <p style="width: 20px;">Saina</p>
+            </div>
+            <div class="col-md-3">
+              <a href="{% url 'blog_detail' %}" class="img-wrapper">
+              <img class="left-block" src="{%static 'v-anand.jpg'%}" alt="" style="width:100px;height:100px;"/></a>
+              <p style="width: 20px;">V-Anand</p>
+            </div>
+            <div class="col-md-3">
+              <a href="{% url 'blog_detail' %}" class="img-wrapper">
+              <img class="left-block" src="{%static 'rahul-dravid.jpg'%}" alt="" style="width:100px;height:100px;"/></a>
+              <p style="width: 20px;">Rahul dravid</p>
+            </div>
+          </div>

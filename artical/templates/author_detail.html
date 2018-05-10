@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block sidebar%}
+
+ 
+ {% include 'navigator.html' %}
+
+{%endblock%}
+
+{%block content%}
+	<div class='container'>
+		<div class='row'>
+			<div class="border col-lg-12">
+				
+					<h1>{{author_detail.title}}</h1>
+					<p>{{author_detail.publicationdate}}|{{author_detail.author}}</p>
+					{%if author_detail.image%}
+						<img src="{{ author_detail.image.url }}" alt="{{ image.title }}" width="900" height="400">
+					{%endif%}
+			</div>
+			<div class="border col-lg-12">
+				<div class='col-sm-6'>
+					{{author_detail.about}}
+				</div>
+				<div class='border col-sm-6'>
+					<img src="{%static 'logo.png'%}" alt="anand">
+				</div>
+			</div>
+			<div class="border col-lg-12">
+				{%include 'readme.html'%}
+			</div>
+		</div>
+	</div>
+{%endblock%}

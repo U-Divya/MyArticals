@@ -1,0 +1,90 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{%block sidebar%}
+	
+	{%include 'navigator.html'%}
+	
+{%endblock%}
+
+{%block content%}
+	<div class='container'>
+		<div class="row">
+  			<div class="border col-lg-12 text-primary">
+  				
+  				<h1>Top4List</h1>
+  				<div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+            
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                
+                <p>may 1, 2018|abc</p>
+                <img src="{%static 'sachin.jpg'%}" alt="dravid" width="900" height="400">
+              
+                <h3 class='text-dark'>sachin</h3>
+                <p class='text-dark'>Sachin is cricketer and he is one of the legends of the game and the only sportsman to receive the prestigious Bharat </p>
+                
+              </div>
+              {%for blog in blog%}
+                <div class="carousel-item">
+                  <p>{{blog.publicationdate}}|{{blog.title}}</p>
+                  <img src="{{blog.image.url}}" alt="dravid" width="900" height="400">
+              
+                  <h3 class='text-dark'>{{blog.author}}</h3>
+                  <p style="width: 700px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" class='text-dark'>{{blog.about}}</p>
+                
+                </div>
+             {%endfor%}
+            </div>
+          </div>
+        
+  
+          <!-- Left and right controls 
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+           <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+        </div>
+          -->
+        </div>
+  			<div class="border col-lg-12">
+  				<ol style="font-size: 3em">
+  					{%for blog in blog%}
+  						<li style="font-size: .5em">
+  							<h1>{{blog.author}}</h1>
+  							<p style="width: 500px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" >{{blog.about}}<br>
+  							<a href='{%url 'author_detail' pk=blog.pk %}'>ReadMe</a>
+  						</li>
+  					{%endfor%}
+  				</ol>
+          <div class='pagination'>
+            <span class='step-links'>
+              {% if blog.has_previous %}
+                <a href="?page={{ blog.previous_page_number}}">previous</a>
+              {%endif%}
+              <span class='current'>
+                page{{blog.number}} of {{blog.paginator.num_pages}}.
+              </span>
+              {% if blog.has_next %}
+                <a href="?page={{blog.next_page_number}}">next</a>
+              {% endif %}
+            </span>
+          </div>
+  			</div>
+
+  			<div class="border col-lg-12">
+          {%include 'readme.html'%}
+        </div>
+</div>
+{%endblock%}

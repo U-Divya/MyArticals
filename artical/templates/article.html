@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block content%}
+<h1><strong>Article Names:</strong></h1>
+{%for article in blog%}
+	
+	<h3>{{article.title}}<h3><br>
+{%endfor%}
+
+{%endblock%}
